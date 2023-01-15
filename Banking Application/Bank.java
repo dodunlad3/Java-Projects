@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
 /**
- * 
+ *
  */
 /**
  * @author Daniel Odunlade
@@ -21,6 +21,7 @@ public class Bank{
             choice = input.nextInt();
             input.nextLine();
             switch(choice) {
+                //Creating an account and adding it to the ArrayList
                 case 1:
                     System.out.println("Please enter a userKey:");
                     String key = input.nextLine();
@@ -29,6 +30,7 @@ public class Bank{
                     input.nextLine();
                     Accounts.add(new BankAccount(key, amount));
                     break;
+                //Accesses bank account if it exists in the ArrayList
                 case 2:
                     System.out.println("Please enter the userKey:");
                     String logKey = input.nextLine();
@@ -44,6 +46,7 @@ public class Bank{
                         break;
                     }
                     int choiceTwo;
+                    //Perform actions within the selected bank account
                     do {
                         System.out.println("1. Check Balance \n2. Deposit \n3. Withdraw \n4. Last Transaction \n5. Quit");
                         choiceTwo = input.nextInt();
@@ -52,7 +55,7 @@ public class Bank{
                             case 1:
                                 System.out.println("Your current balance is "+ acc.checkBalance());
                                 break;
-                            
+
                             case 2:
                                 System.out.println("Enter the deposit amount:");
                                 double amountTwo = input.nextDouble();
@@ -60,13 +63,13 @@ public class Bank{
 							try {
 								acc.deposit(amountTwo);
 							} catch (Exception e) {
-								
+
 								e.printStackTrace();
 							}
 							TimeUnit.SECONDS.sleep(1);
 							System.out.println("Your new balance is "+ acc.checkBalance());
                                 break;
-                            
+
                             case 3:
                                 System.out.println("Enter the withdrawl amount:");
                                 double withdrawAmount = input.nextDouble();
@@ -79,28 +82,28 @@ public class Bank{
 							TimeUnit.SECONDS.sleep(1);
                             System.out.println("Your new balance is "+ acc.checkBalance());
                             break;
-                            
+
                             case 4:
                             	System.out.println(acc.getLastTransaction());
                             	break;
-                           
+
                             case 5:
-                            	break;
-                            
+                              break;
+
                             default:
                             System.out.println("Invalid choice, please try again");
                             break;
                         }
-                    } 
+                    }
                     while(choiceTwo != 5);
-                    	break;
+                      break;
                         case 3:
-                            break;
+                        break;
                         	default:
                             System.out.println("Invalid choice, please try again");
                             break;
             }
-        } 
+        }
         while (choice != 3);
         }
     }
