@@ -1,49 +1,64 @@
+/*
+ * This class represents a bank account
+ *
+ * @param userKey
+ * 				the user key for the account
+ * @param balance
+ * 				the current balance of the account
+ * @param lastTransaction
+ * 				the last transaction made on the account
+ *
+ *  @author Daniel Odunlade
+ *
+ */
 package Bank;
 
 
-public class BankAccount{
+import java.io.Serializable;
+
+public class BankAccount implements Serializable {
 	protected String userKey;
 	protected double balance;
 	protected double lastTransaction;
-	
+
 	public BankAccount(String userKey, double initialBalance){
 		this.userKey = userKey;
 		balance = initialBalance;
 		lastTransaction = 0;
 	}
-	
+
 	/*
 	 * Gets the current balance in the account
-	 * 
+	 *
 	 * @return the current balance of the account
 	 */
-	public double checkBalance() {
-		return balance;
+	public String checkBalance() {
+		return String.format("%.2f", balance);
 	}
-	
+
 	/*
 	 * Allows users to change their user Key
-	 * 
+	 *
 	 * @param newKey
 	 * 				the new user key
 	 */
 	public void setUserKey(String newKey) {
 		userKey = newKey;
 	}
-	
+
 	/*
 	 * Gets the account's userKey
-	 * 
+	 *
 	 * @return the user key
 	 */
 	public String getUserKey() {
 		return userKey;
 	}
-	
+
 	/*
 	 * Deposits money into the account and updates the last transaction
-	 * 
-	 * 
+	 *
+	 *
 	 * @param amount
 	 * 				the amount being deposited
 	 */
@@ -54,10 +69,10 @@ public class BankAccount{
 		balance += amount;
 		lastTransaction = amount;
 	}
-	
+
 	/*
 	 * Withdraws money from the account and updates the last transaction
-	 * 
+	 *
 	 * @param amount
 	 * 				the amount being withdrawn
 	 */
@@ -71,10 +86,10 @@ public class BankAccount{
 		balance -= amount;
 		lastTransaction = -(amount);
 	}
-	
+
 	/*
 	 * Displays what the last transaction was.
-	 * 
+	 *
 	 * @return the last transaction
 	 */
 	public String getLastTransaction() {
@@ -87,9 +102,9 @@ public class BankAccount{
 		else {
 			return "Withdrawl of $" + Math.abs(lastTransaction);
 		}
-			
-		
+
+
 	}
-	
-	
+
+
 }
