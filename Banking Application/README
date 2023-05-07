@@ -1,0 +1,5 @@
+This is a simple Banking Application that I made using Java
+You can create an account, deposit, withdraw, check balance as well as the last transaction
+
+I most recently added the ability to save the bank accounts amd have them load up
+when you run the program
